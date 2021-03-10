@@ -18,9 +18,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name="tbl_book")
-@Setter
-@Getter
-@ToString
+
 public class Book {
 
 	@Id
@@ -48,9 +46,129 @@ public class Book {
 	private Date createdOn;
 	
 	@Column(name="last_updated")
-	private Date updateOn;
+	private Date updatedOn;
 	
 	@ManyToOne
 	@JoinColumn(name="category_id",nullable=false)
 	private BookCategory category;
+	
+	
+	
+	public Book() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Book(Long id, String sku, String name, String description, BigDecimal unitPrice, String imageUrl,
+			boolean active, int unitsInStock, Date createdOn, Date updatedOn, BookCategory category) {
+		super();
+		this.id = id;
+		this.sku = sku;
+		this.name = name;
+		this.description = description;
+		this.unitPrice = unitPrice;
+		this.imageUrl = imageUrl;
+		this.active = active;
+		this.unitsInStock = unitsInStock;
+		this.createdOn = createdOn;
+		this.updatedOn = updatedOn;
+		this.category = category;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public BigDecimal getUnitPrice() {
+		return unitPrice;
+	}
+
+	public void setUnitPrice(BigDecimal unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public int getUnitsInStock() {
+		return unitsInStock;
+	}
+
+	public void setUnitsInStock(int unitsInStock) {
+		this.unitsInStock = unitsInStock;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updateOn) {
+		this.updatedOn = updateOn;
+	}
+
+	public BookCategory getCategory() {
+		return category;
+	}
+
+	public void setCategory(BookCategory category) {
+		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", sku=" + sku + ", name=" + name + ", description=" + description + ", unitPrice="
+				+ unitPrice + ", imageUrl=" + imageUrl + ", active=" + active + ", unitsInStock=" + unitsInStock
+				+ ", createdOn=" + createdOn + ", updatedOn=" + updatedOn + ", category=" + category + "]";
+	}
+
+	
+	
 }
